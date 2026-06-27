@@ -1,6 +1,6 @@
 manifestVersion: 1
 name: "@mgreten/aws/s3-site-deploy"
-version: "2026.05.21.2"
+version: "2026.06.27.1"
 description: "Deploy a static site directory to AWS S3 with MD5-based change detection and stale object cleanup"
 repository: "https://github.com/meagerfindings/swamp-s3-site-deploy"
 paths:
