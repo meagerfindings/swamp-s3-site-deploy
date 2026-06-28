@@ -27,10 +27,10 @@ const GlobalArgsSchema = z.object({
   region: z.string().default("us-east-1").describe(
     "AWS region for the S3 bucket",
   ),
-  accessKeyId: z.string().default("").describe(
+  accessKeyId: z.string().meta({ sensitive: true }).default("").describe(
     "AWS access key ID — use a vault expression, e.g. ${{ vault.get(my-vault, AWS_ACCESS_KEY_ID) }}",
   ),
-  secretAccessKey: z.string().default("").describe(
+  secretAccessKey: z.string().meta({ sensitive: true }).default("").describe(
     "AWS secret access key — use a vault expression, e.g. ${{ vault.get(my-vault, AWS_SECRET_ACCESS_KEY) }}",
   ),
   skipPaths: z.array(z.string()).default([]).describe(
@@ -93,7 +93,7 @@ async function md5Hex(data: Uint8Array): Promise<string> {
 /** Swamp model definition for S3 static site deployment. */
 export const model = {
   type: "@mgreten/aws/s3-site-deploy",
-  version: "2026.06.27.1",
+  version: "2026.06.27.2",
   globalArguments: GlobalArgsSchema,
   resources: {
     deployment: {
