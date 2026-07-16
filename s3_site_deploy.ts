@@ -93,7 +93,7 @@ async function md5Hex(data: Uint8Array): Promise<string> {
 /** Swamp model definition for S3 static site deployment. */
 export const model = {
   type: "@mgreten/aws/s3-site-deploy",
-  version: "2026.06.27.2",
+  version: "2026.07.16.1",
   globalArguments: GlobalArgsSchema,
   resources: {
     deployment: {
