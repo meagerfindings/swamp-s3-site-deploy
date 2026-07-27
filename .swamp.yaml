@@ -1,8 +1,8 @@
-swampVersion: 20260726.012317.0
+swampVersion: 20260727.000815.0
 initializedAt: '2026-05-22T05:35:50.910Z'
 repoId: 707f6ad3-8a60-4371-8f82-f531f76e8946
 tools:
   - claude
 gitignoreManaged: true
 lastSkillMigrationWarning: '2026-07-26T02:12:07.728Z'
-upgradedAt: '2026-07-26T02:12:07.771Z'
+upgradedAt: '2026-07-27T01:43:11.614Z'
