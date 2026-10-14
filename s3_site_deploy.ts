@@ -84,7 +84,7 @@ async function* walkFiles(
 }
 
 async function md5Hex(data: Uint8Array): Promise<string> {
-  const buf = await stdCrypto.subtle.digest("MD5", data);
+  const buf = await stdCrypto.subtle.digest("MD5", new Uint8Array(data));
   return Array.from(new Uint8Array(buf))
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
@@ -93,7 +93,15 @@ async function md5Hex(data: Uint8Array): Promise<string> {
 /** Swamp model definition for S3 static site deployment. */
 export const model = {
   type: "@mgreten/aws/s3-site-deploy",
-  version: "2026.07.16.1",
+  version: "2026.09.17.1",
+  upgrades: [{
+    toVersion: "2026.09.17.1",
+    description:
+      "Use a BufferSource-compatible MD5 digest input on current Deno.",
+    upgradeAttributes: (
+      old: Record<string, unknown>,
+    ): Record<string, unknown> => old,
+  }],
   globalArguments: GlobalArgsSchema,
   resources: {
     deployment: {
